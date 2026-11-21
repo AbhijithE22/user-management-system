@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Minimal Dashboard</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/userHome.css" />
+  </head>
+  <body class="bg-background text-textMain">
+    <!-- Top Navigation -->
+    <nav class="bg-surface border-b border-border sticky top-0 z-30 shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <!-- Logo & Brand -->
+          <div class="flex items-center">
+            <div class="flex-shrink-0 flex items-center cursor-pointer">
+              <div
+                class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-blue-100 text-primary"
+              >
+                <i class="fa-solid fa-cube text-sm"></i>
+              </div>
+              <span
+                class="ml-3 font-semibold text-lg text-gray-900 tracking-tight"
+                >Nexus</span
+              >
+            </div>
+          </div>
+
+          <!-- Right Side: User Profile & Logout -->
+          <div class="flex items-center space-x-3 sm:space-x-6">
+            <div class="flex items-center space-x-3">
+              <div class="hidden sm:block text-right">
+                <p class="text-sm font-medium text-gray-900">John Doe</p>
+                <p class="text-xs text-textMuted">Pro Member</p>
+              </div>
+              <!-- Avatar -->
+              <div
+                class="h-9 w-9 rounded-full bg-gradient-to-tr from-blue-500 to-primary flex items-center justify-center text-white font-semibold text-sm shadow-inner border border-white cursor-pointer"
+              >
+                JD
+              </div>
+            </div>
+
+            <div class="h-6 w-px bg-gray-200 hidden sm:block"></div>
+
+            <button
+              id="logoutBtn"
+              onclick="window.location.href='/logout'"
+              class="text-textMuted hover:text-red-600 transition-colors px-2 py-2 rounded-md text-sm font-medium flex items-center group"
+            >
+              <i
+                class="fa-solid fa-arrow-right-from-bracket sm:mr-2 group-hover:translate-x-0.5 transition-transform"
+              ></i>
+              <span class="hidden sm:inline">Logout</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main
+      class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12"
+    >
+      <!-- Page Header -->
+      <div
+        class="mb-8 sm:mb-10 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4"
+      >
+        <div>
+          <h1
+            class="text-2xl sm:text-3xl font-bold text-gray-900 tracking-tight"
+          >
+            Welcome <%=user.name%>
+          </h1>
+          <p class="mt-2 text-sm sm:text-base text-textMuted">
+            Here's what's happening with your account today.
+          </p>
+        </div>
+
+        <button
+          class="inline-flex items-center justify-center px-4 py-2.5 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-primary hover:bg-primaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors"
+        >
+          <i class="fa-solid fa-plus mr-2"></i> New Project
+        </button>
+      </div>
+
+      <!-- Stats Grid -->
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-8"
+      >
+        <!-- Stat Card 1 -->
+        <div class="dashboard-card rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-sm font-medium text-textMuted">Total Revenue</h3>
+            <div
+              class="w-10 h-10 rounded-full bg-blue-50 flex items-center justify-center text-primary"
+            >
+              <i class="fa-solid fa-wallet"></i>
+            </div>
+          </div>
+          <div class="flex items-baseline gap-2">
+            <p class="text-3xl font-semibold text-gray-900">$24,500</p>
+            <span
+              class="text-sm font-medium text-green-600 flex items-center bg-green-50 px-2 py-0.5 rounded-full"
+            >
+              <i class="fa-solid fa-arrow-trend-up mr-1 text-xs"></i> 12%
+            </span>
+          </div>
+          <p class="mt-3 text-xs text-textMuted">Compared to last month</p>
+        </div>
+
+        <!-- Stat Card 2 -->
+        <div class="dashboard-card rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-sm font-medium text-textMuted">Active Projects</h3>
+            <div
+              class="w-10 h-10 rounded-full bg-purple-50 flex items-center justify-center text-purple-600"
+            >
+              <i class="fa-solid fa-briefcase"></i>
+            </div>
+          </div>
+          <div class="flex items-baseline gap-2">
+            <p class="text-3xl font-semibold text-gray-900">12</p>
+            <span class="text-sm font-medium text-gray-500">ongoing</span>
+          </div>
+          <div class="w-full bg-gray-100 rounded-full h-1.5 mt-4">
+            <div
+              class="bg-purple-600 h-1.5 rounded-full"
+              style="width: 65%"
+            ></div>
+          </div>
+          <p class="mt-2 text-xs text-textMuted">65% overall completion</p>
+        </div>
+
+        <!-- Stat Card 3 -->
+        <div class="dashboard-card rounded-2xl p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-sm font-medium text-textMuted">New Clients</h3>
+            <div
+              class="w-10 h-10 rounded-full bg-orange-50 flex items-center justify-center text-orange-600"
+            >
+              <i class="fa-solid fa-users"></i>
+            </div>
+          </div>
+          <div class="flex items-baseline gap-2">
+            <p class="text-3xl font-semibold text-gray-900">48</p>
+            <span
+              class="text-sm font-medium text-green-600 flex items-center bg-green-50 px-2 py-0.5 rounded-full"
+            >
+              <i class="fa-solid fa-arrow-trend-up mr-1 text-xs"></i> 8%
+            </span>
+          </div>
+          <p class="mt-3 text-xs text-textMuted">New signups this week</p>
+        </div>
+      </div>
+
+      <!-- Recent Activity Section -->
+      <div class="dashboard-card rounded-2xl overflow-hidden">
+        <div
+          class="px-6 py-5 border-b border-border flex justify-between items-center bg-white"
+        >
+          <h3 class="text-lg font-semibold text-gray-900">Recent Activity</h3>
+          <a
+            href="#"
+            class="text-sm font-medium text-primary hover:text-primaryHover"
+            >View all</a
+          >
+        </div>
+
+        <div class="bg-white">
+          <ul class="divide-y divide-gray-100">
+            <li class="px-6 py-4 hover:bg-gray-50 transition-colors">
+              <div class="flex items-center space-x-4">
+                <div class="flex-shrink-0">
+                  <div
+                    class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600"
+                  >
+                    <i class="fa-solid fa-check"></i>
+                  </div>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-sm font-medium text-gray-900 truncate">
+                    Project "Alpha" completed
+                  </p>
+                  <p class="text-sm text-textMuted truncate">
+                    Client signed off on the final deliverables.
+                  </p>
+                </div>
+                <div class="flex-shrink-0 text-sm text-textMuted">2h ago</div>
+              </div>
+            </li>
+
+            <li class="px-6 py-4 hover:bg-gray-50 transition-colors">
+              <div class="flex items-center space-x-4">
+                <div class="flex-shrink-0">
+                  <div
+                    class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-primary"
+                  >
+                    <i class="fa-solid fa-envelope"></i>
+                  </div>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-sm font-medium text-gray-900 truncate">
+                    New message from Sarah
+                  </p>
+                  <p class="text-sm text-textMuted truncate">
+                    "Can we schedule a quick call tomorrow?"
+                  </p>
+                </div>
+                <div class="flex-shrink-0 text-sm text-textMuted">5h ago</div>
+              </div>
+            </li>
+
+            <li class="px-6 py-4 hover:bg-gray-50 transition-colors">
+              <div class="flex items-center space-x-4">
+                <div class="flex-shrink-0">
+                  <div
+                    class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600"
+                  >
+                    <i class="fa-solid fa-bolt"></i>
+                  </div>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <p class="text-sm font-medium text-gray-900 truncate">
+                    Server usage spike detected
+                  </p>
+                  <p class="text-sm text-textMuted truncate">
+                    CPU usage hit 95% on primary cluster.
+                  </p>
+                </div>
+                <div class="flex-shrink-0 text-sm text-textMuted">1d ago</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+
+    <footer class="mt-auto border-t border-border bg-surface py-6 text-center">
+      <p class="text-sm text-textMuted">
+        &copy; 2026 Nexus App. All rights reserved.
+      </p>
+    </footer>
+
+    <script src="/js/userHome.js"></script>
+  </body>
+</html>

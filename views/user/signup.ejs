@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Minimal Signup</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/userSignup.css" />
+  </head>
+  <body class="p-4 sm:p-8 py-12">
+    <main class="w-full max-w-md mx-auto">
+      <div class="signup-card rounded-2xl p-8 sm:p-10 w-full">
+        <div class="text-center mb-8">
+          <!-- Simple Logo Placeholder matching login -->
+          <div
+            class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-primary mb-4"
+          >
+            <i class="fa-solid fa-cube text-xl"></i>
+          </div>
+          <h1 class="text-2xl font-semibold tracking-tight text-gray-900 mb-2">
+            Create Account
+          </h1>
+          <p class="text-sm text-textMuted">
+            Fill in the details to get started.
+          </p>
+        </div>
+         <% if (error) { %>
+      <div class="bg-red-100 text-red-700 border border-red-300 p-3 rounded-lg mb-4">
+        <%= error %>
+      </div>
+    <% } %>
+
+        <form action="/signup" method="POST" id="signupForm" class="space-y-5">
+          <!-- Full Name Input -->
+          <div class="space-y-1.5">
+            <label
+              for="fullName"
+              class="block text-sm font-medium text-gray-700"
+              >Full Name</label
+            >
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+              >
+                <i class="fa-regular fa-user text-gray-400"></i>
+              </div>
+              <input
+                type="text"
+                name="fullName"
+                id="fullName"
+                class="input-field block w-full pl-10 pr-3 py-2.5 border border-gray-300 rounded-lg text-sm placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+                placeholder="John Doe"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Email Input -->
+          <div class="space-y-1.5">
+            <label for="email" class="block text-sm font-medium text-gray-700"
+              >Email</label
+            >
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+              >
+                <i class="fa-regular fa-envelope text-gray-400"></i>
+              </div>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="input-field block w-full pl-10 pr-3 py-2.5 border border-gray-300 rounded-lg text-sm placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+                placeholder="you@company.com"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Phone Number Input -->
+          <div class="space-y-1.5">
+            <label for="phone" class="block text-sm font-medium text-gray-700"
+              >Phone Number</label
+            >
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+              >
+                <i class="fa-solid fa-phone text-gray-400"></i>
+              </div>
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                class="input-field block w-full pl-10 pr-3 py-2.5 border border-gray-300 rounded-lg text-sm placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+                placeholder="+1 (555) 000-0000"
+                required
+              />
+            </div>
+          </div>
+
+          <!-- Password Input -->
+          <div class="space-y-1.5">
+            <label
+              for="password"
+              class="block text-sm font-medium text-gray-700"
+              >Password</label
+            >
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+              >
+                <i class="fa-solid fa-lock text-gray-400"></i>
+              </div>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                class="input-field block w-full pl-10 pr-10 py-2.5 border border-gray-300 rounded-lg text-sm placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+                placeholder="••••••••"
+                required
+              />
+              <div
+                class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+                onclick="togglePassword('password', 'toggleIcon1')"
+              >
+                <i
+                  id="toggleIcon1"
+                  class="fa-regular fa-eye-slash text-gray-400 hover:text-gray-600 transition-colors"
+                ></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- Confirm Password Input -->
+          <div class="space-y-1.5">
+            <label
+              for="confirmPassword"
+              class="block text-sm font-medium text-gray-700"
+              >Confirm Password</label
+            >
+            <div class="relative">
+              <div
+                class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none"
+              >
+                <i class="fa-solid fa-lock text-gray-400"></i>
+              </div>
+              <input
+                type="password"
+                name="confirmPassword"
+                id="confirmPassword"
+                class="input-field block w-full pl-10 pr-10 py-2.5 border border-gray-300 rounded-lg text-sm placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary"
+                placeholder="••••••••"
+                required
+              />
+              <div
+                class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer"
+                onclick="togglePassword('confirmPassword', 'toggleIcon2')"
+              >
+                <i
+                  id="toggleIcon2"
+                  class="fa-regular fa-eye-slash text-gray-400 hover:text-gray-600 transition-colors"
+                ></i>
+              </div>
+            </div>
+            <p id="passwordError" class="text-xs text-red-500 hidden mt-1">
+              Passwords do not match.
+            </p>
+          </div>
+          
+
+          <div class="flex items-start mt-4">
+            <div class="flex items-center h-5">
+              <input
+                id="terms"
+                name="terms"
+                type="checkbox"
+                required
+                class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded rounded-sm cursor-pointer accent-primary"
+              />
+            </div>
+            <div class="ml-2 text-sm">
+              <label
+                for="terms"
+                class="font-medium text-gray-700 cursor-pointer"
+                >I agree to the
+                <a href="#" class="text-primary hover:underline"
+                  >Terms of Service</a
+                >
+                and
+                <a href="#" class="text-primary hover:underline"
+                  >Privacy Policy</a
+                >.</label
+              >
+            </div>
+          </div>
+
+          <div class="pt-2">
+            <button
+              type="submit"
+              class="w-full py-2.5 px-4 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium transition duration-200"
+            >
+              Sign Up
+            </button>
+          </div>
+        </form>
+
+        <p class="mt-8 text-center text-sm text-gray-600">
+          Already have an account?
+          <!-- This would link back to the login.html in a real app -->
+          <a
+            href="/login"
+            class="font-medium text-primary hover:text-primaryHover hover:underline"
+          >
+            Login
+          </a>
+        </p>
+      </div>
+
+      <div class="mt-6 text-center text-xs text-gray-400 pb-8">
+        &copy; 2026 Your Company. All rights reserved.
+      </div>
+    </main>
+
+    <script src="/js/userSignup.js"></script>
+  </body>
+</html>

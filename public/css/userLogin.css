@@ -1,0 +1,41 @@
+/* Custom styles to enhance the minimal look */
+body {
+  background-color: theme("colors.background");
+  color: theme("colors.textMain");
+  font-family: "Inter", sans-serif;
+  /* Ensure full height for centering */
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Subtle texture or pattern could go here, but keeping it solid for minimal style */
+}
+
+.login-card {
+  background-color: theme("colors.surface");
+  /* Soft shadow */
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.05),
+    0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  border: 1px solid theme("colors.border");
+}
+
+/* Smooth transitions for inputs and buttons */
+.input-field {
+  transition: all 0.2s ease-in-out;
+}
+
+.input-field:focus {
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  border-color: theme("colors.primary");
+}
+
+.btn-primary {
+  transition:
+    background-color 0.2s ease-in-out,
+    transform 0.1s ease-in-out;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}

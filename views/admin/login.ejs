@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Portal</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/adminLogin.css">
+</head>
+<body class="p-4 sm:p-8">
+
+    <main class="w-full max-w-md mx-auto">
+        
+        <div class="login-card rounded-2xl p-8 sm:p-10 w-full">
+            
+            <div class="text-center mb-8">
+                <!-- Admin Shield Icon -->
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-100 text-primary mb-4">
+                    <i class="fa-solid fa-shield-halved text-xl"></i>
+                </div>
+                <h1 class="text-2xl font-semibold tracking-tight text-gray-900 mb-2">Admin Login</h1>
+                <p class="text-sm text-textMuted">Secure access to the administrative panel.</p>
+            </div>
+             <% if (error) { %>
+            <div class="bg-red-100 border border-red-300 text-red-700 p-3 rounded-lg mb-4">
+            <%= error %>
+            </div>
+            <% } %>
+            
+            <form action="/admin/login" method="POST" id="adminLoginForm" class="space-y-6">
+                
+                <div class="space-y-2">
+                    <label for="email" class="block text-sm font-medium text-gray-700">Admin Email</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fa-solid fa-user-shield text-gray-400"></i>
+                        </div>
+                        <input 
+                            type="email" 
+                            name="email" 
+                            id="email" 
+                            class="input-field block w-full pl-10 pr-3 py-2.5 border border-gray-300 rounded-lg text-sm placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" 
+                            placeholder="admin@company.com" 
+                            required>
+                    </div>
+                </div>
+                
+                <div class="space-y-2">
+                    <div class="flex items-center justify-between">
+                        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                        
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <i class="fa-solid fa-lock text-gray-400"></i>
+                        </div>
+                        <input 
+                            type="password" 
+                            name="password" 
+                            id="password" 
+                            class="input-field block w-full pl-10 pr-10 py-2.5 border border-gray-300 rounded-lg text-sm placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary" 
+                            placeholder="••••••••" 
+                            required>
+                        
+                        <!-- Toggle Password Visibility -->
+                        <div class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer" onclick="togglePassword()">
+                            <i id="toggleIcon" class="fa-regular fa-eye-slash text-gray-400 hover:text-gray-600 transition-colors"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="pt-2">
+                    <button 
+                        type="submit" 
+                        class="btn-primary w-full flex justify-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-primary hover:bg-primaryHover focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                        Login to Dashboard
+                    </button>
+                </div>
+            </form>
+            
+        </div>
+        
+        <div class="mt-6 text-center text-xs text-gray-400">
+            &copy; 2026 Nexus App. Secure Admin Portal.
+        </div>
+    </main>
+
+    <script src="/js/adminLogin.js"></script>
+</body>
+</html>
